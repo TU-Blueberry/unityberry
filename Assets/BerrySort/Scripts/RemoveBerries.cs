@@ -18,6 +18,8 @@ public class RemoveBerries : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Berry")) {
+            Destroy(other.gameObject);
+        }
     }
 }

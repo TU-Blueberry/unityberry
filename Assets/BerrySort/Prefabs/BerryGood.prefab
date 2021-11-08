@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 1
-  trait: 0
+  trait: 1
   endpoint: {fileID: 0}
 --- !u!114 &-4610950880370341375
 MonoBehaviour:
