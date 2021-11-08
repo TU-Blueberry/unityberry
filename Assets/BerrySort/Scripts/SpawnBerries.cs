@@ -60,10 +60,10 @@ public class SpawnBerries : MonoBehaviour
 
     void receiveResult(string jsonString)
     {
-        string berries = "{\"result\":{\"berries\":[1,0,1,1,0,1,0,0,0,1,1,0,1,1,1]}}";
-        string classification = "{\"result\":{\"berries\":[1,0,1,1,0,1,0,0,0,1,1,0,1,1,1]}}";
-        this.berriesClassification = JsonUtility.FromJson<BerryResultDTO>(classification).berries;
-        this.berries = JsonUtility.FromJson<BerryResultDTO>(berries).berries;
+        string berries = "[1,0,1,1,0,1,0,0,0,1,1,0,1,1,1]";
+        string classification = "[1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]";
+        // this.berriesClassification = JsonUtility.FromJson<ArrayList>(classification);
+        // this.berries = JsonUtility.FromJson<BerryResultDTO>(berries).berries;
 
     }
 

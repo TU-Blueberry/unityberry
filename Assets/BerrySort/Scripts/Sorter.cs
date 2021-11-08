@@ -12,7 +12,11 @@ public class Sorter : MonoBehaviour
     public Transform endPoint;
     public GameObject piston;
     public Transform startPoint;
+
+    public Transform destination;
     bool move = false;
+
+    public float speed;
 
 
 
@@ -51,17 +55,18 @@ public class Sorter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
-        // if (other.CompareTag("Building"))
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
-            Debug.Log("Classification:" + berry.classification);
-            Debug.Log("BerryTrait:" + berry.berryTrait);
-
+            //Debug.Log("Classification:" + berry.classification);
+            //Debug.Log("BerryTrait:" + berry.berryTrait);
             if (berry.classification == 0)
             {
                 this.move = true;
+                var berryGameObject = other.gameObject;
+                berryGameObject.GetComponent<Rigidbody>().velocity = destination.position * 2;
             }
+            //berry.transform.position = Vector3.MoveTowards(other.transform.position, destination.position, speed * Time.deltaTime);
+
         }
     }
 }

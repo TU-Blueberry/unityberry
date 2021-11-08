@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4259616475962391241}
   - component: {fileID: -3747302649950624125}
   - component: {fileID: 4164822296894960256}
+  - component: {fileID: -4610950880370341375}
   m_Layer: 0
   m_Name: BerryGood
   m_TagString: Untagged
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classification: 1
   berryTrait: 1
+--- !u!114 &-4610950880370341375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7221244947247972365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: 0
+  berryTrait: 0
