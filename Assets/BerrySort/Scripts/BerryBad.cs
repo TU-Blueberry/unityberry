@@ -6,11 +6,10 @@ using UnityEngine;
 public class BerryBad : Berry
 {
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        /*         this.classification = 0;
-                this.berryTrait = 0; */
+
     }
 
     // Update is called once per frame
@@ -19,9 +18,15 @@ public class BerryBad : Berry
 
     }
 
-    public BerryBad(int classification) : base(0)
+    public BerryBad() : base(0)
     {
-        this.classification = 0;
+
+    }
+
+    public void setClassification(int classification)
+    {
+        this.classification = classification;
+
     }
 
 }

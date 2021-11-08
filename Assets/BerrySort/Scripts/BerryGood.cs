@@ -21,7 +21,7 @@ public class BerryGood : Berry
 
     public BerryGood(int classification) : base(1)
     {
-        this.classification = 1;
+        this.classification = classification;
     }
 
 }
