@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrip : MonoBehaviour
+public class RemoveBerries : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,12 @@ public class scrip : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Berry")) {
+            Destroy(other.gameObject);
+        }
     }
 }

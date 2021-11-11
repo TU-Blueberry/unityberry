@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/UnityTest.unity
+    path: Assets/Scenes/UnityTest.unity
     guid: ae34deb935fabd241aa2f1aca29a5cf0
   - enabled: 1
-    path: Assets/BerrySort.unity
+    path: Assets/Scenes/BerrySort.unity
     guid: 8a363a68b0812084f8ced82387bfce28
   m_configObjects: {}

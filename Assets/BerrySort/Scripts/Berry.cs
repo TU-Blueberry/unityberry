@@ -6,25 +6,27 @@ public class Berry : MonoBehaviour
 {
 
     public int classification;
-    public int berryTrait;
+    public int trait;
 
     public Transform endpoint;
-    // Start is called before the first frame update
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
     }
 
 
-    public Berry(int berryTrait)
+    // A good Berry will always be generated with a classification 1 and a bad with 0 since they call their parent Constructor.
+    // In the two classes which extend the berry they receive their classification.
+    public Berry(int classification)
     {
-        this.berryTrait = berryTrait;
+        this.classification = classification;
     }
 
     public void getSorted()
