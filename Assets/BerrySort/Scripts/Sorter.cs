@@ -104,8 +104,8 @@ public class Sorter : MonoBehaviour
         float incorrect = ((float)falsePositive / (float)total) + ((float)falseNegative / (float)total);
         float result = (float)correct - (float)incorrect;
         this.currentRatio = (float)result;
-        Debug.Log(total);
-        Debug.Log(result);
+        // Debug.Log(total);
+        // Debug.Log(result);
         return result;
     }
 
