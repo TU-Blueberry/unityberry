@@ -59,13 +59,13 @@ public class AngularTranslator : MonoBehaviour
     void toggleWebGLInput()
     {
         // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
+        //WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
     }
 
     void disableWebGLInput()
     {
         // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        WebGLInput.captureAllKeyboardInput = false;
+        //WebGLInput.captureAllKeyboardInput = false;
     }
 
 
