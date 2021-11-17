@@ -63,9 +63,6 @@ public class BerrySpawner : MonoBehaviour
     }
 
 
-
-
-
     void SpawnObject(int trait, int classification)
     {
         if (trait == 1)

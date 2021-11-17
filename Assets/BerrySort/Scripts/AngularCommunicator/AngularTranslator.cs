@@ -14,6 +14,7 @@ public class AngularTranslator : MonoBehaviour
     string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
     string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
 
+
     List<int> traitList;
     List<int> classList;
     void Start()
@@ -59,13 +60,13 @@ public class AngularTranslator : MonoBehaviour
     void toggleWebGLInput()
     {
         // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        //WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
+        WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
     }
 
     void disableWebGLInput()
     {
         // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        //WebGLInput.captureAllKeyboardInput = false;
+        WebGLInput.captureAllKeyboardInput = false;
     }
 
 
