@@ -9,7 +9,7 @@ public class Cart : MonoBehaviour
     public Transform loadPoint;
     public Transform endPoint;
     public GameObject text;
-    
+
     private Transform goal;
     private int load = 0; //Number of berries loaded
     private int good = 0;
@@ -31,19 +31,25 @@ public class Cart : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Berry")) {
-            var berry = (Berry) other.gameObject.GetComponent<Berry>();
-            if(berry.trait == 0) {
+        if (other.gameObject.CompareTag("Berry"))
+        {
+            var berry = (Berry)other.gameObject.GetComponent<Berry>();
+            if (berry.trait == 0)
+            {
                 bad++;
-            } else {
+            }
+            else
+            {
                 good++;
             }
             load++;
-            if (load == limit) {
+            if (load == limit)
+            {
                 goal = endPoint;
                 var newText = System.String.Format("Good: {0} | Bad: {1}", good, bad) + "\n" + text.GetComponent<TextMesh>().text;
                 var splitted = newText.Split('\n');
-                if(splitted.Length > 3) {
+                if (splitted.Length > 3)
+                {
                     newText = splitted[0] + "\n" + splitted[1] + "\n" + splitted[2];
                 }
                 text.GetComponent<TextMesh>().text = newText;
