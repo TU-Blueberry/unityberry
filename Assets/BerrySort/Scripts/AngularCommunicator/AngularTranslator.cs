@@ -11,8 +11,12 @@ public class AngularTranslator : MonoBehaviour
 
     public GameObject berryProducer;
 
-    string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
-    string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
+    //string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,0,1,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
+    //string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,0,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
+
+
+    string traitString = "1,0,1,1";
+    string classString = "1,0,1,1";
 
 
     List<int> traitList;
@@ -48,25 +52,6 @@ public class AngularTranslator : MonoBehaviour
         this.traitList = result.Split(',').Select(Int32.Parse).ToList();
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
         producer.receiveResult(this.traitList, this.classList);
-    }
-
-
-    void setClassification()
-    {
-        var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        producer.receiveResult(this.traitList, this.classList);
-    }
-
-    void toggleWebGLInput()
-    {
-        // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
-    }
-
-    void disableWebGLInput()
-    {
-        // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        WebGLInput.captureAllKeyboardInput = false;
     }
 
 

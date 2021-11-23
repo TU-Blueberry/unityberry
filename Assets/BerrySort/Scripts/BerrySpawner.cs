@@ -8,9 +8,13 @@ public class BerrySpawner : MonoBehaviour
 
 {
     float elapsed = 0f;
+
+    public float spawnRate = 0.5f;
     public Transform spawner;
     public Transform goodBerry;
     public Transform badBerry;
+
+    public int berryLifetime;
 
     public int current = 0;
     // Will be passed later.
@@ -31,7 +35,7 @@ public class BerrySpawner : MonoBehaviour
 
         elapsed += Time.deltaTime;
 
-        if (elapsed >= 1f)
+        if (elapsed >= spawnRate)
         {
             if (current < this.berryClassList.Count && current < this.berryTraitList.Count)
             {
@@ -40,7 +44,7 @@ public class BerrySpawner : MonoBehaviour
                 int trait = this.berryTraitList[current];
                 int classification = this.berryClassList[current];
 
-                elapsed = elapsed % 1f;
+                elapsed = elapsed % spawnRate;
                 SpawnObject(trait, classification);
 
                 this.current++;
@@ -69,13 +73,17 @@ public class BerrySpawner : MonoBehaviour
         {
             Transform berry = Instantiate(goodBerry, position, Quaternion.identity);
             BerryGood berryScript = (BerryGood)berry.GetComponent<BerryGood>();
+            berry.rotation = Random.rotation;
             berryScript.classification = classification;
+            Destroy(berry.gameObject, this.berryLifetime);
+
         }
         else
         {
             Transform berry = Instantiate(badBerry, position, Quaternion.identity);
             BerryBad berryScript = (BerryBad)berry.GetComponent<BerryBad>();
             berryScript.classification = classification;
+            Destroy(berry.gameObject, this.berryLifetime);
 
         }
 
