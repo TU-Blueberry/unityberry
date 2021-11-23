@@ -17,6 +17,8 @@ public class Sorter : MonoBehaviour
     public Transform startPoint;
     public Transform destination;
 
+    public int moveFactor;
+
     // --- Result Computation ---
 
     // A Good Berries - Correctly let through (Trait: 1 Classification: 1)
@@ -88,7 +90,13 @@ public class Sorter : MonoBehaviour
             {
                 this.move = true;
                 var berryGameObject = other.gameObject;
-                berryGameObject.GetComponent<Rigidbody>().velocity = destination.position * 2;
+                Debug.Log(berryGameObject.transform.position);
+                Debug.Log(destination.position);
+                var target = destination.position - berryGameObject.transform.position;
+                Debug.Log(target);
+                var normalized = target.normalized * moveFactor;
+                berryGameObject.GetComponent<Rigidbody>().velocity = normalized;
+
 
 
             }
