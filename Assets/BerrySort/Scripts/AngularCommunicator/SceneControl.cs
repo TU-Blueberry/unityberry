@@ -12,7 +12,7 @@ public class SceneControl : MonoBehaviour
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        Application.targetFrameRate = target;
     }
 
     void Update()
