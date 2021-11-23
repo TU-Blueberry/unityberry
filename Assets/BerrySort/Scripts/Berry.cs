@@ -8,13 +8,17 @@ public class Berry : MonoBehaviour
     public int classification;
     public int trait;
 
-    public Transform endpoint;
+    public GameObject berryObject;
+    /* 
+        void Start()
+        {
+            Destroy(berryObject, 1);
+        } */
 
-    void Start()
+    void Awake()
     {
 
     }
-
 
     void Update()
     {
@@ -27,6 +31,7 @@ public class Berry : MonoBehaviour
     public Berry(int classification)
     {
         this.classification = classification;
+
     }
 
     public void getSorted()

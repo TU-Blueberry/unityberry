@@ -11,8 +11,12 @@ public class AngularTranslator : MonoBehaviour
 
     public GameObject berryProducer;
 
-    string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
-    string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,1";
+    //string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,0,1,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
+    //string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,0,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
+
+
+    string traitString = "1,0,1,1";
+    string classString = "1,0,1,1";
 
 
     List<int> traitList;
