@@ -56,8 +56,9 @@ public class Sorter : MonoBehaviour
     public GameObject BronzeTrophy;
 
     public GameObject GoldText;
-    public GameObject BronzeText;
     public GameObject SilverText;
+
+    public GameObject BronzeText;
 
 
     public GameObject Progress;
