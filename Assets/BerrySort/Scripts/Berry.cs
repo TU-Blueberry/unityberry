@@ -7,6 +7,7 @@ public class Berry : MonoBehaviour
 
     public int classification;
     public int trait;
+    public string picture; //Base64
 
     public GameObject berryObject;
     /* 
