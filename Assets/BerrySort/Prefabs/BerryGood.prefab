@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9167068748910387672}
   - component: {fileID: 4259616475962391241}
   - component: {fileID: -3747302649950624125}
-  - component: {fileID: 4164822296894960256}
   - component: {fileID: -4610950880370341375}
   m_Layer: 0
   m_Name: BerryGood
@@ -59,7 +58,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,7 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &4259616475962391241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,21 +111,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020000009, y: 0.020000007, z: 0.019999998}
   m_Center: {x: -4.6566134e-10, y: -9.3132246e-10, z: 6.617445e-24}
---- !u!114 &4164822296894960256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221244947247972365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f29d5c148418e041b0be08034c64c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  classification: 1
-  trait: 1
-  endpoint: {fileID: 0}
 --- !u!114 &-4610950880370341375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classification: 0
   trait: 0
-  endpoint: {fileID: 0}
+  image: 0
+  imagePath: 0
+  berryObject: {fileID: 0}

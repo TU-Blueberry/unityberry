@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 59745482}
   - component: {fileID: 59745481}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophySilver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 145014766}
   - component: {fileID: 145014765}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextSilver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 151329450}
   - component: {fileID: 151329449}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophyBronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 409124353}
   - component: {fileID: 409124352}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextBronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &546229536
 Transform:
   m_ObjectHideFlags: 0
@@ -2222,9 +2222,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
         type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 1563547860}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: BronzeText
+      value: 
+      objectReference: {fileID: 409124350}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: GoldTrophy
+      value: 
+      objectReference: {fileID: 1145382621}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: SilverText
+      value: 
+      objectReference: {fileID: 145014763}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
       propertyPath: moveFactor
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: BronzeTrophy
+      value: 
+      objectReference: {fileID: 151329447}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: SilverTrophy
+      value: 
+      objectReference: {fileID: 59745479}
     - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
         type: 3}
       propertyPath: goalScreenText
@@ -2966,7 +2996,7 @@ PrefabInstance:
     - target: {fileID: 8033529660161432247, guid: 0e9426d895cc7e542ae93055fac8f60b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7
+      value: -11.12
       objectReference: {fileID: 0}
     - target: {fileID: 8033529660161432247, guid: 0e9426d895cc7e542ae93055fac8f60b,
         type: 3}
@@ -3015,6 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4610950880370341375, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
+    - {fileID: 4164822296894960256, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
 --- !u!1 &717139162
 GameObject:
@@ -5267,7 +5298,7 @@ GameObject:
   - component: {fileID: 1145382624}
   - component: {fileID: 1145382623}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophyGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6778,7 +6809,7 @@ PrefabInstance:
     - target: {fileID: 6721797625724358758, guid: 9958ea42ef22a9f4b85cf55617673c1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.43
+      value: -11.85
       objectReference: {fileID: 0}
     - target: {fileID: 6721797625724358758, guid: 9958ea42ef22a9f4b85cf55617673c1c,
         type: 3}
@@ -6825,7 +6856,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2119000037006042064, guid: 9958ea42ef22a9f4b85cf55617673c1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9958ea42ef22a9f4b85cf55617673c1c, type: 3}
 --- !u!1 &1474120869
 GameObject:
@@ -7601,7 +7633,7 @@ GameObject:
   - component: {fileID: 1563547863}
   - component: {fileID: 1563547862}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7865,6 +7897,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 712783136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620959805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620959804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: 1
+  trait: 1
+  image: 
+  imagePath: 
+  berryObject: {fileID: 1620959804}
 --- !u!1 &1626994088
 GameObject:
   m_ObjectHideFlags: 0
@@ -9429,6 +9478,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1472741501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106154833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106154832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: 0
+  trait: 0
+  image: 
+  imagePath: 
+  berryObject: {fileID: 2106154832}
 --- !u!1 &3108497739114500411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2018892451599970110, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
@@ -9521,7 +9587,7 @@ PrefabInstance:
     - target: {fileID: 2018892451599970109, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
         type: 3}
       propertyPath: berryLifetime
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2018892451599970110, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
         type: 3}

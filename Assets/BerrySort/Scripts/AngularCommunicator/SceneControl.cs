@@ -7,7 +7,7 @@ using System.Linq;
 public class SceneControl : MonoBehaviour
 {
 
-    public int target = 30;
+    public int target = 24;
 
     private void Start()
     {
@@ -21,10 +21,16 @@ public class SceneControl : MonoBehaviour
             Application.targetFrameRate = target;
     }
 
-    void changeFPS(int fps)
+    void changeRefresh(int fps)
     {
         this.target = fps;
     }
+
+    void changeRefreshAngular(string fps)
+    {
+        this.target = Int32.Parse(fps);
+    }
+
     void toggleWebGLInput()
     {
         // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
