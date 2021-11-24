@@ -1992,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &546229536
 Transform:
   m_ObjectHideFlags: 0
@@ -3045,6 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4610950880370341375, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
+    - {fileID: 4164822296894960256, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e9426d895cc7e542ae93055fac8f60b, type: 3}
 --- !u!1 &717139162
 GameObject:
@@ -6855,7 +6856,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2119000037006042064, guid: 9958ea42ef22a9f4b85cf55617673c1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9958ea42ef22a9f4b85cf55617673c1c, type: 3}
 --- !u!1 &1474120869
 GameObject:
@@ -7895,6 +7897,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 712783136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620959805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620959804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: 1
+  trait: 1
+  image: 
+  imagePath: 
+  berryObject: {fileID: 1620959804}
 --- !u!1 &1626994088
 GameObject:
   m_ObjectHideFlags: 0
@@ -9459,6 +9478,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1472741501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106154833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106154832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: 0
+  trait: 0
+  image: 
+  imagePath: 
+  berryObject: {fileID: 2106154832}
 --- !u!1 &3108497739114500411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2018892451599970110, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
@@ -9551,7 +9587,7 @@ PrefabInstance:
     - target: {fileID: 2018892451599970109, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
         type: 3}
       propertyPath: berryLifetime
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2018892451599970110, guid: fc6a7b3bd2b562d4cbd37b96c873c6ed,
         type: 3}
