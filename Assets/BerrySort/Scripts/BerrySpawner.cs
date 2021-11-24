@@ -130,15 +130,17 @@ public class BerrySpawner : MonoBehaviour
     {
 
         Transform berry;
-        Vector3 temp = new Vector3(0, 100, 0);
+        Vector3 temp = new Vector3(0, 1, 0);
         if (trait.Equals(0))
         { berry = Instantiate(badBerry, temp, Quaternion.identity); }
         else
         {
-            berry = Instantiate(goodBerry, position, Quaternion.identity);
+            berry = Instantiate(goodBerry, temp, Quaternion.identity);
         }
 
         Berry berryInstance = (Berry)berry.GetComponent<Berry>();
+        berry.position = temp;
+        berry.rotation = Random.rotation;
         berryInstance.classification = trait;
         berryInstance.trait = classification;
         berryInstance.imagePath = imagePath;

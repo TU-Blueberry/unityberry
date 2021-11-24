@@ -11,12 +11,8 @@ public class AngularTranslator : MonoBehaviour
 
     public GameObject berryProducer;
 
-    //string traitString = "1,0,1,1,0,1,0,0,0,1,1,0,1,0,1,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
-    //string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,0,1,0,1,1,0,1,0,0,0,1,1,0,1,1,0";
-
-
-    string traitString = "0";
-    string classString = "0";
+    string traitString = "1,0,1,0,1,0,1,0,1,0,1,0,1,1,0";
+    string classString = "1,0,1,0,1,0,1,0,1,0,1,0,1,0,1";
 
     BerrySpawner producer;
     List<int> traitList;
@@ -34,17 +30,17 @@ public class AngularTranslator : MonoBehaviour
     }
     void Update()
     {
-        /* 
-                elapsed += Time.deltaTime;
 
-                        if (elapsed >= 1)
-                        {
-                            elapsed = elapsed % 1;
-                            enableManual();
-                            queueBerry("1, 1,IMAGEPATH");
-                            acceptImage("A");
+        /*         elapsed += Time.deltaTime;
 
-                        } */
+                if (elapsed >= 1)
+                {
+                    elapsed = elapsed % 1;
+                    enableManual();
+                    queueBerry("0, 0,IMAGEPATH");
+                    acceptImage("A");
+
+                } */
     }
 
     public void receiveClassification(string result)
@@ -103,4 +99,5 @@ public class AngularTranslator : MonoBehaviour
         producer.addImageAndProduce(image);
 
     }
+
 }
