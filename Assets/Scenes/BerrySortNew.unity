@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 59745482}
   - component: {fileID: 59745481}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophySilver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 145014766}
   - component: {fileID: 145014765}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextSilver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 151329450}
   - component: {fileID: 151329449}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophyBronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 409124353}
   - component: {fileID: 409124352}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextBronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2222,9 +2222,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
         type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 1563547860}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: BronzeText
+      value: 
+      objectReference: {fileID: 409124350}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: GoldTrophy
+      value: 
+      objectReference: {fileID: 1145382621}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: SilverText
+      value: 
+      objectReference: {fileID: 145014763}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
       propertyPath: moveFactor
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: BronzeTrophy
+      value: 
+      objectReference: {fileID: 151329447}
+    - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
+        type: 3}
+      propertyPath: SilverTrophy
+      value: 
+      objectReference: {fileID: 59745479}
     - target: {fileID: 3119486446935817542, guid: 09c02447d5a45b34fbc8aa45ca69bf59,
         type: 3}
       propertyPath: goalScreenText
@@ -2966,7 +2996,7 @@ PrefabInstance:
     - target: {fileID: 8033529660161432247, guid: 0e9426d895cc7e542ae93055fac8f60b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7
+      value: -11.12
       objectReference: {fileID: 0}
     - target: {fileID: 8033529660161432247, guid: 0e9426d895cc7e542ae93055fac8f60b,
         type: 3}
@@ -5267,7 +5297,7 @@ GameObject:
   - component: {fileID: 1145382624}
   - component: {fileID: 1145382623}
   m_Layer: 0
-  m_Name: Trophy
+  m_Name: TrophyGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6778,7 +6808,7 @@ PrefabInstance:
     - target: {fileID: 6721797625724358758, guid: 9958ea42ef22a9f4b85cf55617673c1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.43
+      value: -11.85
       objectReference: {fileID: 0}
     - target: {fileID: 6721797625724358758, guid: 9958ea42ef22a9f4b85cf55617673c1c,
         type: 3}
@@ -7601,7 +7631,7 @@ GameObject:
   - component: {fileID: 1563547863}
   - component: {fileID: 1563547862}
   m_Layer: 0
-  m_Name: Text
+  m_Name: TextGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

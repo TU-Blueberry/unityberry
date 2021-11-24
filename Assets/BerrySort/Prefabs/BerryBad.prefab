@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5549476593036077833}
   - component: {fileID: -5706450731882786329}
   - component: {fileID: -3555849205672754166}
-  - component: {fileID: 2119000037006042064}
+  - component: {fileID: 4125314338204014117}
   m_Layer: 0
   m_Name: BerryBad
   m_TagString: Berry
@@ -58,7 +58,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,7 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &-5706450731882786329
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,7 +111,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020000009, y: 0.020000007, z: 0.019999998}
   m_Center: {x: -4.6566134e-10, y: -9.3132246e-10, z: 6.617445e-24}
---- !u!114 &2119000037006042064
+--- !u!114 &4125314338204014117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6197885469631253212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203a88ccb8a84d147b01d5fad81b6b33, type: 3}
+  m_Script: {fileID: 11500000, guid: 422337fac8aa36642987e0a49f181423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 0
   trait: 0
-  endpoint: {fileID: 0}
+  image: 0
+  imagePath: 0
+  berryObject: {fileID: 0}

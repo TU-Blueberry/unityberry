@@ -175,7 +175,7 @@ public class Sorter : MonoBehaviour
 
     }
 
-    public void reset()
+    public void resetCounter()
     {
         this.correctPositive = 0;
         this.correctNegative = 0;
