@@ -15,8 +15,8 @@ public class AngularTranslator : MonoBehaviour
     //string classString = "1,0,1,1,0,1,0,0,0,1,1,0,1,1,0,0,1,1,0,1,0,0,0,1,1,0,1,0,1";
 
 
-    string traitString = "1,0,1,1";
-    string classString = "1,0,1,1";
+    string traitString = "1,0,1,0";
+    string classString = "1,1,1,0";
 
 
     List<int> traitList;
