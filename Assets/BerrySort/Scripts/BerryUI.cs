@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Berries;
 
 public class BerryUI : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class BerryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -27,18 +28,21 @@ public class BerryUI : MonoBehaviour
         if (other.gameObject.CompareTag("Berry"))
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
-            if(berry.trait == 1)return;
+            Debug.Log(berry.image);
+            if (berry.trait == 1) return;
             GameObject new_image = Instantiate(images.Last(), panel);
-            foreach(GameObject go in images) {
-                go.GetComponent<RectTransform>().localPosition += Vector3.right*160;   
+            foreach (GameObject go in images)
+            {
+                go.GetComponent<RectTransform>().localPosition += Vector3.right * 160;
             }
-            Texture2D texture = new Texture2D(64, 64);
-            byte[] b64_bytes = System.Convert.FromBase64String(berry.picture);
+            Texture2D texture = new Texture2D(16, 16);
+            byte[] b64_bytes = System.Convert.FromBase64String(berry.image);
             texture.LoadImage(b64_bytes);
             new_image.GetComponent<RawImage>().enabled = true;
             new_image.GetComponent<RawImage>().texture = texture;
             images.Add(new_image);
-            if(images.Count > 7) {
+            if (images.Count > 7)
+            {
                 Destroy(images[0]);
                 images.RemoveAt(0);
             }

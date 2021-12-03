@@ -11,23 +11,26 @@ public class DisplayText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
- void Update() {
-     elapsed += Time.deltaTime;
-     if (elapsed >= 1f) {
-         elapsed = elapsed % 1f;
-         OutputTime();
-         count.text = "Count:" + elapsed;
-     }
- }
- void OutputTime() {
-     Debug.Log(Time.time);
- }
+    void Update()
+    {
+        elapsed += Time.deltaTime;
+        if (elapsed >= 1f)
+        {
+            elapsed = elapsed % 1f;
+            OutputTime();
+            count.text = "Count:" + elapsed;
+        }
+    }
+    void OutputTime()
+    {
 
- void RenderText(string text)
- {
-     display.text = text;
- }
+    }
+
+    void RenderText(string text)
+    {
+        display.text = text;
+    }
 }

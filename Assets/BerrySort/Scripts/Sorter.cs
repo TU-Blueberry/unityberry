@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Berries;
 
 public class Sorter : MonoBehaviour
 {
@@ -127,6 +128,7 @@ public class Sorter : MonoBehaviour
             }
 
             this.updateClassification(berry.trait, berry.classification);
+
             this.updateResult();
             updateClassificationText();
 
@@ -139,8 +141,7 @@ public class Sorter : MonoBehaviour
         float incorrect = ((float)falsePositive / (float)total) + ((float)falseNegative / (float)total);
         float result = (float)correct - (float)incorrect;
         this.currentRatio = (float)result;
-        // Debug.Log(total);
-        // Debug.Log(result);
+
         return result;
     }
 
@@ -175,7 +176,7 @@ public class Sorter : MonoBehaviour
 
     }
 
-    public void reset()
+    public void resetCounter()
     {
         this.correctPositive = 0;
         this.correctNegative = 0;
