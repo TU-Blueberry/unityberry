@@ -41,6 +41,8 @@ public class Sorter : MonoBehaviour
     private float SilverRatio = 0.80f;
     private float BronzeRatio = 0.70f;
 
+    private int count = 0;
+
 
 
     private List<int> berryList;
@@ -138,10 +140,10 @@ public class Sorter : MonoBehaviour
     public float computeRatio(int correctPositive, int correctNegative, int falsePositive, int falseNegative, int total)
     {
         float correct = ((float)correctPositive / (float)total) + ((float)correctNegative / (float)total);
-        float incorrect = ((float)falsePositive / (float)total) + ((float)falseNegative / (float)total);
-        float result = (float)correct - (float)incorrect;
+        //float incorrect = ((float)falsePositive / (float)total) + ((float)falseNegative / (float)total);
+        //float result = (float)correct - (float)incorrect;
+        float result = (float)correct;
         this.currentRatio = (float)result;
-
         return result;
     }
 
@@ -176,18 +178,6 @@ public class Sorter : MonoBehaviour
 
     }
 
-    public void resetCounter()
-    {
-        this.correctPositive = 0;
-        this.correctNegative = 0;
-        this.falsePositive = 0;
-        this.falseNegative = 0;
-        this.goalAmount = 100;
-        berryList.Clear();
-    }
-
-
-
     public void updateClassificationText()
     {
 
@@ -205,6 +195,7 @@ public class Sorter : MonoBehaviour
     public void updateClassification(int trait, int classification)
     {
         // Increase the Counter Without Overhead.
+        this.count = count + 1;
 
         if (trait == 1 && classification == 1)
         {
@@ -235,38 +226,56 @@ public class Sorter : MonoBehaviour
         }
 
 
-        // Decrease The Counter after the GoalAmount has been met.
-        if (berryList.Count > goalAmount)
+        if (count > goalAmount)
         {
-
-            int current = berryList[0];
-            berryList.RemoveAt(0);
-
-            switch (current)
-            {
-                case (1):
-                    this.berryList.Add(1);
-                    this.correctPositive = this.correctPositive - 1;
-                    break;
-                case (2):
-                    this.berryList.Add(2);
-                    this.correctNegative = this.correctNegative - 1;
-                    break;
-                case (3):
-                    this.berryList.Add(3);
-                    this.falsePositive = this.falsePositive - 1;
-                    break;
-                case (4):
-                    this.berryList.Add(4);
-                    this.falseNegative = this.falseNegative - 1;
-                    break;
-                default:
-                    this.berryList.Add(4);
-                    Debug.Log("This Should not be printed");
-                    break;
-            }
+            this.reset();
         }
+
+        /*   // Decrease The Counter after the GoalAmount has been met.
+          if (berryList.Count > goalAmount)
+          {
+
+              int current = berryList[0];
+              berryList.RemoveAt(0);
+
+              switch (current)
+              {
+                  case (1):
+                      this.berryList.Add(1);
+                      this.correctPositive = this.correctPositive - 1;
+                      break;
+                  case (2):
+                      this.berryList.Add(2);
+                      this.correctNegative = this.correctNegative - 1;
+                      break;
+                  case (3):
+                      this.berryList.Add(3);
+                      this.falsePositive = this.falsePositive - 1;
+                      break;
+                  case (4):
+                      this.berryList.Add(4);
+                      this.falseNegative = this.falseNegative - 1;
+                      break;
+                  default:
+                      this.berryList.Add(4);
+                      Debug.Log("This Should not be printed");
+                      break;
+              }
+          } */
     }
 
+    public void reset()
+    {
+        this.correctPositive = 0;
+        this.correctNegative = 0;
+        this.falsePositive = 0;
+        this.falseNegative = 0;
+        this.count = 0;
+        this.GoldTrophy.GetComponent<Renderer>().enabled = false;
+        this.SilverTrophy.GetComponent<Renderer>().enabled = false;
+        this.BronzeTrophy.GetComponent<Renderer>().enabled = false;
+        this.goalAmount = 100;
+        berryList.Clear();
+    }
 
 }

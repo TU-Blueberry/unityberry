@@ -24,7 +24,7 @@ public class PictureScreen : MonoBehaviour
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
             Texture2D texture = new Texture2D(16, 16);
-            Debug.Log(berry.image);
+
             byte[] b64_bytes = System.Convert.FromBase64String(berry.image);
             texture.LoadImage(b64_bytes);
             Renderer renderer = GetComponent<Renderer>();

@@ -28,7 +28,6 @@ public class BerryUI : MonoBehaviour
         if (other.gameObject.CompareTag("Berry"))
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
-            Debug.Log(berry.image);
             if (berry.trait == 1) return;
             GameObject new_image = Instantiate(images.Last(), panel);
             foreach (GameObject go in images)

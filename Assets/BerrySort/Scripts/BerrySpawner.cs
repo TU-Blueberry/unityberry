@@ -13,7 +13,7 @@ public class BerrySpawner : MonoBehaviour
     public bool active = true;
 
     //Decides if Berries are produced by Hand
-    public bool manual = false;
+    public bool manual = true;
 
     public float spawnRate = 0.5f;
     public Transform spawner;
@@ -33,9 +33,6 @@ public class BerrySpawner : MonoBehaviour
     public List<BerryData> berryQueue = new List<BerryData>();
 
     public Vector3 position;
-
-
-
 
     void Start()
     {
@@ -69,9 +66,10 @@ public class BerrySpawner : MonoBehaviour
                     this.produceBerry(berryQueue[0]);
 
                     this.berryQueue.RemoveAt(0);
+                    this.current++;
                 }
             }
-            this.current++;
+
         }
         elapsed = elapsed % spawnRate;
 
@@ -83,13 +81,6 @@ public class BerrySpawner : MonoBehaviour
         this.berryClassList = classification;
 
     }
-
-
-    /*     public void queueBerry(Berry berry)
-        {
-            this.berryQueue.Add(berry);
-        } */
-
 
     public void queueBerry(int trait, int classification, string imagePath)
     {
@@ -123,19 +114,33 @@ public class BerrySpawner : MonoBehaviour
 
     public void acceptImage(string imagepath, string image)
     {
-
+        /*         foreach (BerryData berry in this.berryQueue)
+                {
+                    if (berry.imagePath == imagepath)
+                    {
+                        berry.image = image;
+                        break;
+                    }
+                } */
 
         foreach (BerryData berry in this.berryQueue)
         {
-
-            if (berry.imagePath == imagepath)
+            if (berry.image == null || berry.image == "" || berry.image == "0")
             {
-
                 berry.image = image;
-
                 break;
             }
         }
+
+    }
+
+    public void reset()
+    {
+
+        this.berryQueue.Clear();
+        this.berryClassList.Clear();
+        this.berryClassList.Clear();
+
 
     }
 

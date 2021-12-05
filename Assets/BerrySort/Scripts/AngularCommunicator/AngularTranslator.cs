@@ -11,10 +11,14 @@ public class AngularTranslator : MonoBehaviour
 
     public GameObject berryProducer;
 
+    public GameObject berrySorter;
+
     string traitString = "1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0";
     string classString = "1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1";
 
-    BerrySpawner producer;
+
+
+
     List<int> traitList;
     List<int> classList;
 
@@ -27,21 +31,31 @@ public class AngularTranslator : MonoBehaviour
     void Start()
     {
 
-        this.traitList = this.traitString.Split(',').Select(Int32.Parse).ToList();
-        this.classList = this.classString.Split(',').Select(Int32.Parse).ToList();
-        var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        producer.setActive(true);
-        enableManual();
-        string imagePath;
 
-        for (int i = 0; i < traitList.Count(); i++)
-        {
+        /*      this.traitList = this.traitString.Split(',').Select(Int32.Parse).ToList();
+             this.classList = this.classString.Split(',').Select(Int32.Parse).ToList();
+             var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
+             producer.setActive(true);
+             enableManual();
+             string imagePath;
 
-            imagePath = traitList.ElementAt(i) == 0 ? this.basePath + this.badBerry : this.basePath + this.goodBerry;
-            queueBerry(traitList.ElementAt(i) + "," + classList.ElementAt(i) + "," + imagePath);
+             for (int i = 0; i < traitList.Count(); i++)
+             {
 
-        }
-        producer.receiveResult(this.traitList, this.classList);
+                 imagePath = traitList.ElementAt(i) == 0 ? this.basePath + this.badBerry : this.basePath + this.goodBerry;
+                 queueBerry(traitList.ElementAt(i) + "," + classList.ElementAt(i) + "," + imagePath);
+             }
+
+             for (int i = 0; i < traitList.Count(); i++)
+             {
+
+                 acceptImage("/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABAAEADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD04mkJpua5bxT42sfDY8pv310wyIlPT6+lOMXJ2Qm0jp3kCjrWLqniGz09T591HF9TzXlur/EnVbsGK3KQA9SvauIvdRmu7gtLM8rd2Y9TXQsO18Rn7S+x7ePF2nXP+rvVb606PWIp2xHOj+wavChNIi4BPPoaltryaEhhKytngg9Kt0IpCU2z3hZ9/fmp0mKnINec+G/FZkdLa9kG88LIe/sa7qKXfisJRsaJmz4h1uLRNLluZGAYDCgnqa+etV1CTU7+W5lcs7tkkmuz+JmsNdat9hVz5cA6erd68+jLEkkcVvh1yq5jN3YxzjOOTTUQ55qwdoPSotyl85reRKHcdKjbvQXAJqCSQgHFYynYtRFjuGWQYY5Br2DwvqL3ejwO7ZYDaSfavGIeWzXo/gm7P2Z4h0VsisL3NUYXiuVz4jvi55EzD9ayElBXkV2HxJ0WSx1x71FzDc/Nn0bvXCFjirjPQytqTPKXfao/GmyB41yw69xREyhDkc0s0g8jGcms5VKjnZbGyhBRv1K4kB4NRSEs3tTc8nNKOabZAqdMV6F4LtXjtGlI5c8VxmmWD317FBGpZnPavadE0D7LbxK/AUDiocrFRN7xFokOvaW9pLgN1Rv7prwfXPD95ot20N1EQAflbHDV9IPGRWbqek2mq2rW93EsiHpnqPpURk0NxufM53BuKictnkmvYbz4U2juTb3rop6BlziqTfCeLHzai2faOqdRC5WeVBSa1NI0C/1i4WGzgZyepxwPqa9NsPhVYRSK89zLKo7YABrutO0q00yAQ2kKxoPQdal1Ow1Duc94R8DW+gw+dORLeMPmbsvsK69IUXtTwtSKPaoepaP/2Q==");
+
+             } */
+
+
+
+        // producer.receiveResult(this.traitList, this.classList);
 
     }
     void Update()
@@ -52,8 +66,13 @@ public class AngularTranslator : MonoBehaviour
         if (elapsed >= 1)
         {
             elapsed = elapsed % 1;
-            acceptImage("berries/berrybad-", "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABg2lDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw1AUhU9TpSIVBzuIOGSoThZERRylFYtgobQVWnUweekfNGlIUlwcBdeCgz+LVQcXZ10dXAVB8AfEzc1J0UVKvC8pNIjxweV9nPfO4b77AKFVY6rZMwmommVkknExX1gVQ68II+hUSGKmnsou5uC7vu4R4PtdjGf53/tzDShFkwEBkXie6YZFvEE8u2npnPeJI6wiKcTnxBMGNUj8yHXZ5TfOZYcFnhkxcpkEcYRYLHtY9jCrGCrxDHFUUTXKF/IuK5y3OKu1Buv0yV8YLmorWa5TjSKJJaSQhggZDVRRg4UY7RopJjJ0Hvfxjzj+NLlkclXByLGAOlRIjh/8D37P1ixNT7lJ4TjQ+2LbH2NAaBdoN237+9i22ydA8Bm40rr+eguY+yS92dWiR8DgNnBx3dXkPeByBxh+0iVDcqQglVAqAe9n9E0FYOgW6F9z59Y5x+kDkKNZLd8AB4fAeJmy133e3eed2793OvP7AelhcnCjVS7cAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5QwDDAQDqWcPpAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAWSURBVCjPY/zPQBpgYhjVMKph2GoAAEAuAR+xkMJNAAAAAElFTkSuQmCC");
-            acceptImage("berries/berrygood-", "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABg2lDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw1AUhU9TpSIVBzuIOGSoThZERRylFYtgobQVWnUweekfNGlIUlwcBdeCgz+LVQcXZ10dXAVB8AfEzc1J0UVKvC8pNIjxweV9nPfO4b77AKFVY6rZMwmommVkknExX1gVQ68II+hUSGKmnsou5uC7vu4R4PtdjGf53/tzDShFkwEBkXie6YZFvEE8u2npnPeJI6wiKcTnxBMGNUj8yHXZ5TfOZYcFnhkxcpkEcYRYLHtY9jCrGCrxDHFUUTXKF/IuK5y3OKu1Buv0yV8YLmorWa5TjSKJJaSQhggZDVRRg4UY7RopJjJ0Hvfxjzj+NLlkclXByLGAOlRIjh/8D37P1ixNT7lJ4TjQ+2LbH2NAaBdoN237+9i22ydA8Bm40rr+eguY+yS92dWiR8DgNnBx3dXkPeByBxh+0iVDcqQglVAqAe9n9E0FYOgW6F9z59Y5x+kDkKNZLd8AB4fAeJmy133e3eed2793OvP7AelhcnCjVS7cAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5QwDDAQUKrSKYwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAYSURBVCjPY2T7z0ASYGJgGNUwqmG4agAAUYkBJXHEPR0AAAAASUVORK5CYII=");
+
+            // var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
+            //  var sorter = (Sorter)berrySorter.GetComponent<Sorter>();
+
+            //sorter.reset();
+            //producer.reset();
+
 
         }
     }
@@ -106,11 +125,29 @@ public class AngularTranslator : MonoBehaviour
         //producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath));
         producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath);
 
+
     }
-    public void acceptImage(string imagepath, string image)
+    /*     public void acceptImage(string imagepath, string image)
+        {
+            var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
+            producer.acceptImage(imagepath, image);
+
+        } */
+
+    public void acceptImage(string image)
     {
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        producer.acceptImage(imagepath, image);
+        producer.acceptImage("", image);
+
+    }
+
+    public void reset()
+    {
+        var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
+        var sorter = (Sorter)berryProducer.GetComponent<Sorter>();
+
+        sorter.reset();
+        producer.reset();
 
     }
 
