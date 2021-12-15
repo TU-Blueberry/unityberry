@@ -144,7 +144,7 @@ public class AngularTranslator : MonoBehaviour
     public void reset()
     {
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        var sorter = (Sorter)berryProducer.GetComponent<Sorter>();
+        var sorter = (Sorter)berrySorter.GetComponent<Sorter>();
 
         sorter.reset();
         producer.reset();
