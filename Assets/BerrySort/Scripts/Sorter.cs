@@ -226,10 +226,10 @@ public class Sorter : MonoBehaviour
         }
 
 
-        if (count > goalAmount)
-        {
-            this.reset();
-        }
+        /*         if (count > goalAmount)
+                {
+                    this.reset();
+                } */
 
         /*   // Decrease The Counter after the GoalAmount has been met.
           if (berryList.Count > goalAmount)
@@ -274,8 +274,15 @@ public class Sorter : MonoBehaviour
         this.GoldTrophy.GetComponent<Renderer>().enabled = false;
         this.SilverTrophy.GetComponent<Renderer>().enabled = false;
         this.BronzeTrophy.GetComponent<Renderer>().enabled = false;
-        this.goalAmount = 100;
-        berryList.Clear();
+        this.berryList.Clear();
+    }
+
+    public void startNewSorting(int amount, string metric)
+    {
+        // TODO: Add a new Metric class
+        this.reset();
+        this.goalAmount = amount;
+
     }
 
 }

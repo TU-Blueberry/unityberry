@@ -26,9 +26,6 @@ public class BerrySpawner : MonoBehaviour
 
     public int current = 0;
     // Will be passed later.
-    public List<int> berryClassList = new List<int>();
-
-    public List<int> berryTraitList = new List<int>();
 
     public List<BerryData> berryQueue = new List<BerryData>();
 
@@ -40,16 +37,6 @@ public class BerrySpawner : MonoBehaviour
 
     }
 
-    public void setActive(bool active)
-    {
-        this.active = active;
-    }
-
-    public void setManual(bool manual)
-    {
-        this.manual = manual;
-    }
-
     void Update()
     {
 
@@ -58,71 +45,71 @@ public class BerrySpawner : MonoBehaviour
         if (elapsed >= spawnRate)
         {
 
-            if (berryQueue.Count > 0)
-            {
-
-                if (this.berryQueue[0].image != null)
-                {
-                    this.produceBerry(berryQueue[0]);
-
-                    this.berryQueue.RemoveAt(0);
-                    this.current++;
-                }
-            }
+            this.produceBerry();
 
         }
         elapsed = elapsed % spawnRate;
 
     }
-    public void receiveResult(List<int> traits, List<int> classification)
-    {
-        this.current = 0;
-        this.berryTraitList = traits;
-        this.berryClassList = classification;
-
-    }
-
     public void queueBerry(int trait, int classification, string imagePath)
     {
 
         this.berryQueue.Add(new BerryData(trait, classification, imagePath, null));
     }
 
-    public void produceBerry(BerryData berry)
+    public void queueBerry(int trait, int classification, string imagePath, string image)
     {
 
-        Vector3 spawnerPosition = spawner.position;
-        Transform berryGameObject;
+        this.berryQueue.Add(new BerryData(trait, classification, imagePath, image));
+    }
 
-        if (berry.trait.Equals(0))
-        { berryGameObject = Instantiate(badBerry, spawnerPosition, Quaternion.identity); }
-        else
+    public void produceBerry()
+    {
+
+
+        if (berryAvailable())
         {
-            berryGameObject = Instantiate(goodBerry, spawnerPosition, Quaternion.identity);
+            BerryData berry = berryQueue[0];
+            Vector3 spawnerPosition = spawner.position;
+            Transform berryGameObject;
+
+            if (berry.trait.Equals(0))
+            { berryGameObject = Instantiate(badBerry, spawnerPosition, Quaternion.identity); }
+            else
+            {
+                berryGameObject = Instantiate(goodBerry, spawnerPosition, Quaternion.identity);
+            }
+
+            Berry berryInstance = (Berry)berryGameObject.GetComponent<Berry>();
+            berryGameObject.position = spawnerPosition;
+            berryGameObject.rotation = Random.rotation;
+            berryInstance.classification = berry.classification;
+            berryInstance.trait = berry.trait;
+            berryInstance.imagePath = berry.imagePath;
+            berryInstance.image = berry.image;
+            Destroy(berryInstance.gameObject, this.berryLifetime);
+            this.berryQueue.RemoveAt(0);
+            this.current++;
         }
 
-        Berry berryInstance = (Berry)berryGameObject.GetComponent<Berry>();
-        berryGameObject.position = spawnerPosition;
-        berryGameObject.rotation = Random.rotation;
-        berryInstance.classification = berry.classification;
-        berryInstance.trait = berry.trait;
-        berryInstance.imagePath = berry.imagePath;
-        berryInstance.image = berry.image;
-        Destroy(berryInstance.gameObject, this.berryLifetime);
+    }
 
+    public bool berryAvailable()
+    {
+
+        if (berryQueue.Count > 0)
+        {
+
+            if (this.berryQueue[0].image != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void acceptImage(string imagepath, string image)
     {
-        /*         foreach (BerryData berry in this.berryQueue)
-                {
-                    if (berry.imagePath == imagepath)
-                    {
-                        berry.image = image;
-                        break;
-                    }
-                } */
-
         foreach (BerryData berry in this.berryQueue)
         {
             if (berry.image == null || berry.image == "" || berry.image == "0")
@@ -136,12 +123,18 @@ public class BerrySpawner : MonoBehaviour
 
     public void reset()
     {
-
         this.berryQueue.Clear();
-        this.berryClassList.Clear();
-        this.berryClassList.Clear();
+    }
 
 
+    public void setActive(bool active)
+    {
+        this.active = active;
+    }
+
+    public void setManual(bool manual)
+    {
+        this.manual = manual;
     }
 
 }
