@@ -88,7 +88,6 @@ public class AngularTranslator : MonoBehaviour
         string imagePath = berryParts[2];
         string image = berryParts[3];
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        //producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath));
         producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath, image);
     }
 
@@ -151,11 +150,6 @@ public class AngularTranslator : MonoBehaviour
 
             imagePath = traitList.ElementAt(i) == 0 ? this.basePath + this.badBerry : this.basePath + this.goodBerry;
             this.queueBerryWithImage(traitList.ElementAt(i) + "," + classList.ElementAt(i) + "," + imagePath + "," + dummyImage);
-        }
-
-        for (int i = 0; i < traitList.Count(); i++)
-        {
-
         }
 
     }

@@ -19,8 +19,8 @@ public class BerrySpawner : MonoBehaviour
     public Transform spawner;
 
     public Transform queuespot;
-    public Transform goodBerry;
-    public Transform badBerry;
+    public List<Transform> goodBerry;
+    public List<Transform> badBerry;
 
     public int berryLifetime;
 
@@ -74,10 +74,10 @@ public class BerrySpawner : MonoBehaviour
             Transform berryGameObject;
 
             if (berry.trait.Equals(0))
-            { berryGameObject = Instantiate(badBerry, spawnerPosition, Quaternion.identity); }
+            { berryGameObject = Instantiate(badBerry[Random.Range(0, badBerry.Count)], spawnerPosition, Quaternion.identity); }
             else
             {
-                berryGameObject = Instantiate(goodBerry, spawnerPosition, Quaternion.identity);
+                berryGameObject = Instantiate(goodBerry[Random.Range(0, badBerry.Count)], spawnerPosition, Quaternion.identity);
             }
 
             Berry berryInstance = (Berry)berryGameObject.GetComponent<Berry>();
