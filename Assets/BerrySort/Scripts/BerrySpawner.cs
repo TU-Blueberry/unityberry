@@ -57,10 +57,13 @@ public class BerrySpawner : MonoBehaviour
         this.berryQueue.Add(new BerryData(trait, classification, imagePath, null));
     }
 
-    public void queueBerry(int trait, int classification, string imagePath, string image)
+    // Queues a new Berry and returns the current Queue Size.
+    public int queueBerry(int trait, int classification, string imagePath, string image)
     {
 
+        Debug.Log(trait + classification + imagePath + image);
         this.berryQueue.Add(new BerryData(trait, classification, imagePath, image));
+        return this.berryQueue.Count;
     }
 
     public void produceBerry()
@@ -124,6 +127,7 @@ public class BerrySpawner : MonoBehaviour
     public void reset()
     {
         this.berryQueue.Clear();
+
     }
 
 

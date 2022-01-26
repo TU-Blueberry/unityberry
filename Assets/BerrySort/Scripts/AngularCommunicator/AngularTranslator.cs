@@ -16,6 +16,12 @@ public class AngularTranslator : MonoBehaviour
 
     public GameObject berrySorter;
 
+    public GameObject statusText;
+
+    public GameObject textInstance;
+
+    public int statusLifetime = 5;
+
 
     List<int> traitList;
     List<int> classList;
@@ -32,6 +38,8 @@ public class AngularTranslator : MonoBehaviour
         {
             testProduction();
         }
+
+        this.statusText.SetActive(false);
     }
     void Update()
     {
@@ -88,7 +96,13 @@ public class AngularTranslator : MonoBehaviour
         string imagePath = berryParts[2];
         string image = berryParts[3];
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath, image);
+        int size = producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath, image);
+        if (size <= 1)
+        {
+            Debug.Log("Received new Berries");
+        }
+
+        this.displayStatus("Berries Received: " + size);
     }
 
     public void start(string data)
@@ -128,6 +142,21 @@ public class AngularTranslator : MonoBehaviour
         sorter.reset();
         producer.reset();
 
+        this.displayStatus("Reset!");
+
+    }
+
+    public void displayStatus(string text)
+    {
+        if (this.textInstance)
+        {
+            Destroy(this.textInstance);
+
+        }
+        this.textInstance = Instantiate(this.statusText, this.statusText.transform.position, Quaternion.identity);
+        this.textInstance.SetActive(true);
+        this.textInstance.GetComponent<TextMesh>().text = text;
+        Destroy(this.textInstance, this.statusLifetime);
     }
 
     // --- Debug Logic --- 
