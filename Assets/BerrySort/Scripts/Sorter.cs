@@ -7,7 +7,7 @@ public class Sorter : MonoBehaviour
 {
 
     // --- Control ---
-    bool move = false;
+    public bool move = false;
     // --- Animation ---
     float elapsed = 0f;
     public float backwardsMomentum;
@@ -96,10 +96,11 @@ public class Sorter : MonoBehaviour
     void Update()
     {
 
-        if (piston.transform.position.z == endPoint.position.z && piston.transform.position.z != startPoint.position.z)
+        if (piston.transform.position == endPoint.position)
         {
             move = false;
         }
+
 
         if (move)
         {
@@ -224,44 +225,6 @@ public class Sorter : MonoBehaviour
         {
             Debug.Log("This Should not be printed");
         }
-
-
-        if (count > goalAmount)
-        {
-            this.reset();
-        }
-
-        /*   // Decrease The Counter after the GoalAmount has been met.
-          if (berryList.Count > goalAmount)
-          {
-
-              int current = berryList[0];
-              berryList.RemoveAt(0);
-
-              switch (current)
-              {
-                  case (1):
-                      this.berryList.Add(1);
-                      this.correctPositive = this.correctPositive - 1;
-                      break;
-                  case (2):
-                      this.berryList.Add(2);
-                      this.correctNegative = this.correctNegative - 1;
-                      break;
-                  case (3):
-                      this.berryList.Add(3);
-                      this.falsePositive = this.falsePositive - 1;
-                      break;
-                  case (4):
-                      this.berryList.Add(4);
-                      this.falseNegative = this.falseNegative - 1;
-                      break;
-                  default:
-                      this.berryList.Add(4);
-                      Debug.Log("This Should not be printed");
-                      break;
-              }
-          } */
     }
 
     public void reset()
@@ -274,8 +237,15 @@ public class Sorter : MonoBehaviour
         this.GoldTrophy.GetComponent<Renderer>().enabled = false;
         this.SilverTrophy.GetComponent<Renderer>().enabled = false;
         this.BronzeTrophy.GetComponent<Renderer>().enabled = false;
-        this.goalAmount = 100;
-        berryList.Clear();
+        this.berryList.Clear();
+    }
+
+    public void startNewSorting(int amount, string metric)
+    {
+        // TODO: Add a new Metric class
+        this.reset();
+        this.goalAmount = amount;
+
     }
 
 }

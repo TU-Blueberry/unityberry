@@ -24,7 +24,7 @@ public class ConveyorBelt : MonoBehaviour
     {
         offsetX = (offsetX + Time.deltaTime * animSpeed) % 1;
         beltRender.material.mainTextureOffset = new Vector2(offsetX, 0f);
-    } 
+    }
 
     void OnTriggerStay(Collider other)
     {

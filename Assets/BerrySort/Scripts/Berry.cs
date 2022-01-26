@@ -16,7 +16,7 @@ namespace Berries
         // Path to the Image
         public string imagePath;
 
-        public GameObject berryObject;
+        // public GameObject berryObject;
         /* 
             void Start()
             {
