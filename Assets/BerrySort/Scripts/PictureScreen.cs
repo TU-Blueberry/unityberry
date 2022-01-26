@@ -20,7 +20,8 @@ public class PictureScreen : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Berry"))
+
+        if (other.GetComponent<Berry>() != null)
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
             Texture2D texture = new Texture2D(16, 16);

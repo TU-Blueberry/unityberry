@@ -9,7 +9,9 @@ public class BerryUI : MonoBehaviour
 {
     public GameObject image;
     public Transform panel;
-    private List<GameObject> images = new List<GameObject>();
+    public int correctTrait;
+    public Color outlineColor;
+    public List<GameObject> images = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -25,25 +27,30 @@ public class BerryUI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Berry"))
+        if (other.GetComponent<Berry>() != null)
         {
             var berry = (Berry)other.gameObject.GetComponent<Berry>();
-            if (berry.trait == 1) return;
-            GameObject new_image = Instantiate(images.Last(), panel);
-            foreach (GameObject go in images)
+            if (berry.trait == correctTrait) return;
+            if (images.Count > 0)
             {
-                go.GetComponent<RectTransform>().localPosition += Vector3.right * 160;
-            }
-            Texture2D texture = new Texture2D(16, 16);
-            byte[] b64_bytes = System.Convert.FromBase64String(berry.image);
-            texture.LoadImage(b64_bytes);
-            new_image.GetComponent<RawImage>().enabled = true;
-            new_image.GetComponent<RawImage>().texture = texture;
-            images.Add(new_image);
-            if (images.Count > 7)
-            {
-                Destroy(images[0]);
-                images.RemoveAt(0);
+                GameObject new_image = Instantiate(images.Last(), panel);
+                new_image.GetComponent<Outline>().effectColor = outlineColor;
+                foreach (GameObject go in images)
+                {
+                    go.GetComponent<RectTransform>().localPosition += Vector3.right * 160;
+                }
+                Texture2D texture = new Texture2D(16, 16);
+                byte[] b64_bytes = System.Convert.FromBase64String(berry.image);
+                texture.LoadImage(b64_bytes);
+                new_image.GetComponent<RawImage>().enabled = true;
+                new_image.GetComponent<RawImage>().texture = texture;
+                images.Add(new_image);
+                if (images.Count > 7)
+                {
+
+                    Destroy(images[0]);
+                    images.RemoveAt(0);
+                }
             }
         }
     }
