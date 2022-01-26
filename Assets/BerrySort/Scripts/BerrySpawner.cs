@@ -61,7 +61,7 @@ public class BerrySpawner : MonoBehaviour
     public int queueBerry(int trait, int classification, string imagePath, string image)
     {
 
-        Debug.Log(trait + classification + imagePath + image);
+        //Debug.Log(trait + classification + imagePath + image);
         this.berryQueue.Add(new BerryData(trait, classification, imagePath, image));
         return this.berryQueue.Count;
     }

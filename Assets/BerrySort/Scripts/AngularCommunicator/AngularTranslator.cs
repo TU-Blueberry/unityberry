@@ -10,7 +10,7 @@ public class AngularTranslator : MonoBehaviour
     float elapsed = 0f;
     float resetTimer = 0f;
 
-    bool debug = true;
+    public bool debug = false;
 
     public GameObject berryProducer;
 
@@ -22,7 +22,7 @@ public class AngularTranslator : MonoBehaviour
 
     public int statusLifetime = 5;
 
-
+    public int size = 0;
     List<int> traitList;
     List<int> classList;
 
@@ -96,13 +96,8 @@ public class AngularTranslator : MonoBehaviour
         string imagePath = berryParts[2];
         string image = berryParts[3];
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        int size = producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath, image);
-        if (size <= 1)
-        {
-            Debug.Log("Received new Berries");
-        }
-
-        this.displayStatus("Berries Received: " + size);
+        this.size = producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath, image);
+        this.displayStatus("Berries Received: " + this.size);
     }
 
     public void start(string data)
@@ -120,6 +115,7 @@ public class AngularTranslator : MonoBehaviour
     public void stop()
     {
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
+        this.displayStatus("Sorter has been stopped");
         producer.setActive(false);
     }
     public void enableManual()
@@ -139,10 +135,10 @@ public class AngularTranslator : MonoBehaviour
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
         var sorter = (Sorter)berrySorter.GetComponent<Sorter>();
 
+        this.size = 0;
+        this.displayStatus("Sorter has been reset!");
         sorter.reset();
         producer.reset();
-
-        this.displayStatus("Reset!");
 
     }
 
