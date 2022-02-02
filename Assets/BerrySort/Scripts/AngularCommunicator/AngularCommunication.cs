@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Runtime.InteropServices;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class NewBehaviourScript : MonoBehaviour
+{
 
     [DllImport("__Internal")]
     private static extern void Hello();
@@ -21,19 +22,18 @@ public class NewBehaviourScript : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern void BindWebGLTexture(int texture);
 
-    void Start() {
+    void Start()
+    {
         Hello();
-        
+
         HelloString("This is a string.");
-        
+
         float[] myArray = new float[10];
         PrintFloatArray(myArray, myArray.Length);
-        
+
         int result = AddNumbers(5, 7);
-        Debug.Log(result);
-        
-        Debug.Log(StringReturnValueFunction());
-        
+
+
         var texture = new Texture2D(0, 0, TextureFormat.ARGB32, false);
         BindWebGLTexture(texture.GetNativeTextureID());
     }

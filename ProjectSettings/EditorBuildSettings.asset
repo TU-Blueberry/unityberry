@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UnityTest.unity
     guid: ae34deb935fabd241aa2f1aca29a5cf0
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/BerrySort.unity
-    guid: 8a363a68b0812084f8ced82387bfce28
+    guid: 0a7215e2fe05b4549a7a90766ac2cf77
+  - enabled: 1
+    path: Assets/Scenes/BerrySortNew.unity
+    guid: d17e0dfbebf186e46bd514291867cfec
   m_configObjects: {}

@@ -1,0 +1,12 @@
+{
+  "trailingComma": "es5",
+  "semi": false,
+  "singleQuote": true,
+  "maxwidth": 200,
+  "overrides": [
+    {
+      "files": "*.cs",
+      "options": {}
+    }
+  ]
+}
