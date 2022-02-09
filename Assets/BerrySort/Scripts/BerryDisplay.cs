@@ -12,6 +12,8 @@ public class BerryDisplay : MonoBehaviour
     public List<GameObject> images = new List<GameObject>();
     public int limit;
 
+    public BerryFullscreen fsBerry;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,10 @@ public class BerryDisplay : MonoBehaviour
         Texture2D texture = new Texture2D(16, 16);
         byte[] b64_bytes = System.Convert.FromBase64String(berry.image);
         texture.LoadImage(b64_bytes);
+        Texture2D temp_tex = texture;
         new_image.GetComponent<RawImage>().enabled = true;
         new_image.GetComponent<RawImage>().texture = texture;
+        new_image.GetComponent<Button>().onClick.AddListener(() => { fsBerry.showImage(temp_tex); });
         images.Add(new_image);
         if (images.Count > limit)
         {
