@@ -10,7 +10,7 @@ public class AngularTranslator : MonoBehaviour
     float elapsed = 0f;
     float resetTimer = 0f;
 
-    public bool debug = false;
+    public bool debug = true;
 
     public GameObject berryProducer;
 
@@ -36,6 +36,7 @@ public class AngularTranslator : MonoBehaviour
     {
         if (debug)
         {
+            Debug.Log("Hii");
             testProduction();
         }
 

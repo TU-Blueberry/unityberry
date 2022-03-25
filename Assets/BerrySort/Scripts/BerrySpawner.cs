@@ -45,6 +45,7 @@ public class BerrySpawner : MonoBehaviour
         if (elapsed >= spawnRate)
         {
 
+
             this.produceBerry();
 
         }
