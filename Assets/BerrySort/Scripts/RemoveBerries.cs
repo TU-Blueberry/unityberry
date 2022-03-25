@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Berries;
 
 public class RemoveBerries : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class RemoveBerries : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Berry")) {
+        if (other.GetComponent<Berry>() != null)
+        {
             Destroy(other.gameObject);
         }
     }
