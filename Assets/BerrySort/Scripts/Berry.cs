@@ -16,13 +16,6 @@ namespace Berries
         // Path to the Image
         public string imagePath;
 
-        // public GameObject berryObject;
-        /* 
-            void Start()
-            {
-                Destroy(berryObject, 1);
-            } */
-
         void Awake()
         {
 
@@ -33,7 +26,6 @@ namespace Berries
 
         }
 
-
         // A good Berry will always be generated with a classification 1 and a bad with 0 since they call their parent Constructor.
         // In the two classes which extend the berry they receive their classification.
         // Basic Berry Generator.
@@ -43,7 +35,6 @@ namespace Berries
 
         }
 
-        // TODO: Consider Handling Image generation here or in the Spawn script.
         public Berry(int trait, int classification, string imagePath)
         {
             this.classification = classification;
@@ -70,7 +61,6 @@ namespace Berries
         public string imagePath;
 
 
-        // TODO: Consider Handling Image generation here or in the Spawn script.
         public BerryData(int trait, int classification, string imagePath)
         {
             this.classification = classification;

@@ -31,16 +31,18 @@ public class SceneControl : MonoBehaviour
         this.target = Int32.Parse(fps);
     }
 
-    void toggleWebGLInput()
-    {
-        // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
-        WebGLInput.captureAllKeyboardInput = !WebGLInput.captureAllKeyboardInput;
-    }
-
+    // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
+    // A normal Toggle Method didn't seem to work so it got split up.
     void disableWebGLInput()
     {
-        // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keabord inputs
+
         WebGLInput.captureAllKeyboardInput = false;
+    }
+
+    void enableWebGLInput()
+    {
+
+        WebGLInput.captureAllKeyboardInput = true; ;
     }
 
 

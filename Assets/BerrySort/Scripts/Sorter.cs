@@ -242,7 +242,7 @@ public class Sorter : MonoBehaviour
 
     public void startNewSorting(int amount, string metric)
     {
-        // TODO: Add a new Metric class
+
         this.reset();
         this.goalAmount = amount;
 

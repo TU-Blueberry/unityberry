@@ -36,7 +36,6 @@ public class AngularTranslator : MonoBehaviour
     {
         if (debug)
         {
-            Debug.Log("Hii");
             testProduction();
         }
 
@@ -71,7 +70,6 @@ public class AngularTranslator : MonoBehaviour
         string classification = berryParts[1];
         string imagePath = berryParts[2];
         var producer = (BerrySpawner)berryProducer.GetComponent<BerrySpawner>();
-        //producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath));
         producer.queueBerry(Int32.Parse(trait), Int32.Parse(classification), imagePath);
     }
 
