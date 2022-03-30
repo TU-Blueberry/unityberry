@@ -3,7 +3,7 @@
 Entwickelt im Rahmen der Projektgruppe 643: 
 "Entwicklung einer browserbasierten Lernplattform für Data Science" an der Fakultät für Informatik der TU Dortmund. Für weitere Details zur Motivation, dem didaktischen Konzept sowie weiteren technischen Details empfiehlt sich ein Blick in den Abschlussbericht.
 
-Dies ist das Schwesterprojekt zu "Bluestberry" : https://github.com/TU-Blueberry/bluestberry
+Dies ist das Schwesterprojekt zu "Bluestberry" : https://github.com/TU-Blueberry/bluestberry  
 Es beinhaltet die Sortierroboter Szene, welche aus dem Python Kontext über eine Angular Schnittstelle angesprochen werden soll, um einen Beeren Sortierroboter zu simulieren.
 
 # Installation:
